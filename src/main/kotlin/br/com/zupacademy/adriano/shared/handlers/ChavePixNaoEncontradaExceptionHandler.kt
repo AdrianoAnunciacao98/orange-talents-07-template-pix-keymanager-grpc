@@ -10,7 +10,7 @@ class ChavePixNaoEncontradaExceptionHandler: ExceptionHandler<ChavePixNaoEncontr
     override fun handle(e: ChavePixNaoEncontradaException): ExceptionHandler.StatusWithDetails{
         return ExceptionHandler.StatusWithDetails(Status.NOT_FOUND
             .withDescription(e.message)
-            .withDescription("") ) 
+            .withDescription("") )
     }
 
     override fun supports(e: Exception): Boolean {
