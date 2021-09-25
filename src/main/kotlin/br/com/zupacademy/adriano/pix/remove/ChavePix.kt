@@ -31,4 +31,17 @@ class ChavePix( @field:NotNull @Column(nullable = false) val clienteId: UUID,
         return "ChavePix(clienteId=$clienteId, tipo=$tipo, chave='$chave', tipoDeConta=$tipoDeConta, conta=$conta, id=$id, criadaEm=$criadaEm)"
     }
 
+    fun pertenceAo(clienteId: UUID) = this.clienteId.equals(clienteId)
+
+    fun isAleatoria(): Boolean {
+        return tipo == TipoDeChave.ALEATORIA
+    }
+    fun atualiza(chave: String) : Boolean {
+        if(isAleatoria()){
+            this.chave = chave
+            return true
+        }
+        return false
+    }
+
 }
